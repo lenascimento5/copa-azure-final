@@ -1,12 +1,12 @@
 # EPIC-001 — VM-to-WebApp Modernization
 
-> **Owner:** Morgan (PM) · **Status:** ⏸️ **PARKED** · **Created:** 2026-05-07 · **Parked:** 2026-05-07
+> **Owner:** Morgan (PM) · **Status:** 🟢 **ACTIVE** · **Created:** 2026-05-07 · **Parked:** 2026-05-07 · **Activated:** 2026-05-15
 > **Target event:** TFTEC "Copa do Mundo Azure"
 > **Estimated total duration:** ~3h (workshop time)
 >
-> ⚠️ **PARKED:** Este epic é o **conteúdo didático do evento** (jornada VM→PaaS para o aluno).
-> Só faz sentido ativar depois que a aplicação estiver "100% ajustada" via EPIC-000.
-> Mantido aqui para reuso quando chegarmos à fase de finalização do material do evento.
+> ✅ **ACTIVATED 2026-05-15:** pré-requisito atendido — EPIC-000 done + Story 0.10 (consolidação lote 05-08) fechada com QA gate 9/10 PASS.
+>
+> 🔴 **BLOCKER conhecido na ativação:** `FIFA2026Tickets.bacpac` (12 KB, 2026-05-07) está **desatualizado** — toda a evolução de dados de 2026-05-08 (104 jogos, mojibake, preços FIFA, seed 100k vendas/10k users) foi aplicada via migrations SQL incrementais contra o Azure SQL live, **não dobrada de volta no bacpac**. Stories 1.1 e 1.4 dependem do bacpac e produziriam um DB divergente do app live. **Resolver antes do dry-run** — decisão @data-engineer: (a) regenerar bacpac do Azure SQL atual, ou (b) stories aplicam migrations pós-import. Ver risco abaixo.
 
 ---
 
